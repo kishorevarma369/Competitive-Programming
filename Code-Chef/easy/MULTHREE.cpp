@@ -3,32 +3,26 @@
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-  int n,k,p;
+  int n;
   cin>>n;
+  int arr[]={2,4,8,6};
   while(n--)
   {
-    long long int a,b,c;
+    long long int a,b,c,s,p,k=0;
     cin>>a>>b>>c;
-    k=(b+c);
+    s=(b+c);
     if(a==2)
     {
-      if(k%3==0) cout<<"YES\n";
+      if(s%3==0) cout<<"YES\n";
       else cout<<"NO\n";
       continue;
     }
-    switch((a-3)%4)
-    {
-      case 0:p=2;
-          break;
-      case 1:p=4;
-          break;
-      case 2:p=8;
-          break;
-      case 3:p=6;
-          break;
-    }
-    k=(k%3+((k%10)%3*p)%3)%3;
-    if(k==0) cout<<"YES\n";
+    p=(a-3)/4;
+    for(int i=0;i<4;i++) k+=p*((arr[i]*s)%10);
+    p=(a-3)%4;
+    for(int i=0;i<p;i++) k+=((arr[i]*s)%10);
+    k+=s+s%10;
+    if(k%3==0) cout<<"YES\n";
     else  cout << "NO" << '\n';
   }
   return 0;
