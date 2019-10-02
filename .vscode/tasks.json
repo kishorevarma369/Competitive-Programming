@@ -4,10 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "compilation",
+            "label": "compile and run",
             "type": "shell",
             "command": [
-                "g++",
+                "g++ -std=c++14",
                 "-g \"${file}\" -o \"${fileDirname}\\${fileBasenameNoExtension}\"",
                 "&&",
                 "\"${fileDirname}\\${fileBasenameNoExtension}.exe\""
@@ -33,7 +33,7 @@
             }
         },
         {
-            "label": "debug",
+            "label": "compile",
             "type": "shell",
             "command": [
                 "g++",
@@ -45,6 +45,62 @@
             },
             "problemMatcher": {
                 "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
+        {
+            "label": "compile and run c",
+            "type": "shell",
+            "command": [
+                "gcc",
+                "-g \"${file}\" -o \"${fileDirname}\\${fileBasenameNoExtension}\"",
+                "&&",
+                "\"${fileDirname}\\${fileBasenameNoExtension}.exe\""
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "owner": "c",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
+        {
+            "label": "compile c",
+            "type": "shell",
+            "command": [
+                "gcc",
+                "-g \"${file}\" -o \"${fileDirname}\\${fileBasenameNoExtension}\""
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "owner": "c",
                 "fileLocation": [
                     "relative",
                     "${workspaceRoot}"

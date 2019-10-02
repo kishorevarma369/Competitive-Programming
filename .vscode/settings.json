@@ -60,5 +60,10 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "valarray": "cpp"
-    }
+    },
+    "python.testing.promptToConfigure": false,
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.pythonPath": "/usr/bin/python3"
 }
